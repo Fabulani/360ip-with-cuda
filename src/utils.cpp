@@ -34,3 +34,7 @@ std::string removePath(std::string filepath) {
         return filepath.substr(lastSlash + 1);
     }
 }
+
+int divUp(int a, int b) {
+    return ((a % b) != 0) ? (a / b + 1) : (a / b);
+}

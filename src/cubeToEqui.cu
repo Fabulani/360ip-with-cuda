@@ -9,6 +9,8 @@
 #include <opencv2/core/cuda/vec_traits.hpp>
 #include <opencv2/opencv.hpp>
 
+#include "utils.h"
+
 /* ------------------------------------------------------------------------------------------------------------------------
 #
 # Code adapted from Paul Reed.
@@ -300,11 +302,7 @@ cubeToEqui(cv::cuda::PtrStep<uchar3> input, cv::cuda::PtrStep<uchar3> output, co
     output(row, col) = pixel;
 }
 
-int divUp(int a, int b) {
-    return ((a % b) != 0) ? (a / b + 1) : (a / b);
-}
-
-void startCUDA(cv::cuda::GpuMat& src, cv::cuda::GpuMat& output, float sqr) {
+void cudaCubeToEqui(cv::cuda::GpuMat& src, cv::cuda::GpuMat& output, float sqr) {
     const dim3 block(32, 8);
     const dim3 grid(divUp(output.cols, block.x), divUp(output.rows, block.y));
 

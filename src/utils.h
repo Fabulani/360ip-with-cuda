@@ -9,4 +9,6 @@ std::string removeFileExtension(const std::string& filename);
 
 std::string removePath(std::string filepath);
 
+int divUp(int a, int b);
+
 #endif
